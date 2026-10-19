@@ -27,15 +27,21 @@ namespace ISIP523_Mulkamonov
             
             using (var db = new DB_Mulkamonov_LeaseEntities())
             {
-                var user = db.User.FirstOrDefault(u => u.Login == TxtLogin.Text && u.PasswordHash == hash); 
+                var user = db.User.FirstOrDefault(u => u.Login == TxtLogin.Text && u.PasswordHash == hash);
 
                 if (user != null)
                 {
                     failedAttempts = 0;
+
                     if (user.Role.Name == "Admin")
+                    {
                         NavigationService.Navigate(new AdminPage()); 
+                    }
                     else
-                        MessageBox.Show("Вы вошли как обычный пользователь!");
+                    {
+                        MessageBox.Show("Вы успешно вошли как пользователь!");
+                        NavigationService.Navigate(new UserPage()); 
+                    }
                 }
                 else
                 {
@@ -65,5 +71,15 @@ namespace ISIP523_Mulkamonov
             }
             else ShowCaptcha();
         }
+        private void BtnReg_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RegPage());
+        }
+
+        private void BtnChangePass_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ChangePassPage());
+        }
     }
+
 }

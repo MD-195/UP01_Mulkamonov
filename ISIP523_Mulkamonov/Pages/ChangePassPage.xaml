@@ -1,0 +1,27 @@
+﻿<Page x:Class="ISIP523_Mulkamonov.ChangePassPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Смена пароля">
+
+    <Grid Background="{DynamicResource WindowBg}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="350">
+        <Border Background="{DynamicResource WindowBg}" Padding="20" Margin="10">
+            <StackPanel>
+                <TextBlock Text="Логин:" Margin="0,5"/>
+                <TextBox x:Name="TxtLogin" Height="30"/>
+
+                <TextBlock Text="Старый пароль:" Margin="0,15,0,5"/>
+                <PasswordBox x:Name="TxtOldPass" Height="30"/>
+
+                <TextBlock Text="Новый пароль (от 6 символов):" Margin="0,15,0,5"/>
+                <PasswordBox x:Name="TxtNewPass" Height="30"/>
+
+                <TextBlock Text="Подтвердите новый пароль:" Margin="0,15,0,5"/>
+                <PasswordBox x:Name="TxtConfirmPass" Height="30"/>
+
+                <Button Content="Сменить пароль" Click="BtnChangePass_Click" Margin="0,20,0,0"/>
+
+                <Button Content="Назад к авторизации" Click="BtnBack_Click" Background="Gray"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

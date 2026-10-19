@@ -1,0 +1,29 @@
+﻿<Page x:Class="ISIP523_Mulkamonov.AddRealEstatePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Добавление объекта">
+    <Grid Margin="20">
+        <StackPanel Width="400" HorizontalAlignment="Left">
+
+            <TextBlock Text="Название объявления:" Margin="0,5"/>
+            <TextBox x:Name="TxtTitle" Text="{Binding Title}"/>
+
+            <TextBlock Text="Категория:" Margin="0,10,0,5"/>
+            <ComboBox x:Name="ComboCategory" SelectedValuePath="ID" SelectedValue="{Binding CategoryID}"/>
+
+            <TextBlock Text="Владелец (Пользователь):" Margin="0,10,0,5"/>
+            <ComboBox x:Name="ComboOwner" SelectedValuePath="ID" SelectedValue="{Binding OwnerID}"/>
+
+            <TextBlock Text="Адрес:" Margin="0,10,0,5"/>
+            <TextBox x:Name="TxtAddress" Text="{Binding Address}"/>
+
+            <TextBlock Text="Площадь (кв.м.):" Margin="0,10,0,5"/>
+            <TextBox x:Name="TxtArea" Text="{Binding Area}"/>
+
+            <TextBlock Text="Цена в месяц (руб):" Margin="0,10,0,5"/>
+            <TextBox x:Name="TxtPrice" Text="{Binding PricePerMonth}"/>
+
+            <Button Content="Сохранить" Click="BtnSave_Click" Margin="0,20,0,0"/>
+        </StackPanel>
+    </Grid>
+</Page>

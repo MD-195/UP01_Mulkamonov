@@ -35,5 +35,21 @@ namespace ISIP523_Mulkamonov
         {
             BtnBack.Visibility = MainFrame.CanGoBack ? Visibility.Visible : Visibility.Hidden;
         }
+
+        private bool isDarkTheme = false;
+        private void BtnTheme_Click(object sender, RoutedEventArgs e)
+        {
+            isDarkTheme = !isDarkTheme;
+
+            string themePath = isDarkTheme ? "DictionaryDark.xaml" : "Dictionary.xaml";
+            var uri = new Uri(themePath, UriKind.Relative);
+
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+
+            BtnTheme.Content = isDarkTheme ? "Светлая тема ☀️" : "Темная тема 🌙";
+        }
     }
 }

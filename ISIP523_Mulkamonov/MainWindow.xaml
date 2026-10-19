@@ -3,14 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Недвижимость" Height="600" Width="900" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded" Closing="Window_Closing">
-    <Grid Background="{StaticResource BgLight}">
+
+    <Grid Background="{DynamicResource WindowBg}">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
+
         <Button x:Name="BtnBack" Content="Назад" Width="100" HorizontalAlignment="Left" Click="BtnBack_Click" Visibility="Hidden"/>
+
+        <Button x:Name="BtnTheme" Content="Сменить тему 🌙" Width="150" HorizontalAlignment="Right" Click="BtnTheme_Click" Background="#233E76"/>
 
         <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated"/>
 
