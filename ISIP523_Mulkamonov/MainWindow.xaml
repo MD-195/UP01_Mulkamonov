@@ -1,12 +1,19 @@
 ﻿<Window x:Class="ISIP523_Mulkamonov.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ISIP523_Mulkamonov"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Недвижимость" Height="600" Width="900" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid Background="{StaticResource BgLight}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="BtnBack" Content="Назад" Width="100" HorizontalAlignment="Left" Click="BtnBack_Click" Visibility="Hidden"/>
+
+        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated"/>
+
+        <TextBlock x:Name="DateTimeNow" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="15"/>
     </Grid>
 </Window>

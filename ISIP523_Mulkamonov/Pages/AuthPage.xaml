@@ -1,0 +1,22 @@
+﻿<Page x:Class="ISIP523_Mulkamonov.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Авторизация">
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+        <StackPanel x:Name="LoginPanel">
+            <TextBlock Text="Логин:" Margin="0,5"/>
+            <TextBox x:Name="TxtLogin" Height="30" ToolTip="Введите логин"/> 
+            
+            <TextBlock Text="Пароль:" Margin="0,15,0,5"/>
+            <PasswordBox x:Name="TxtPassword" Height="30" ToolTip="Введите пароль"/>
+            
+            <Button Content="Вход" Click="BtnEnter_Click" Margin="0,20,0,0"/>
+        </StackPanel>
+
+        <StackPanel x:Name="CaptchaPanel" Visibility="Collapsed">
+            <TextBlock Text="Введите текст с картинки:" Foreground="Red"/>
+            <TextBlock x:Name="LblCaptcha" FontSize="28" FontStyle="Italic" FontWeight="Bold" HorizontalAlignment="Center" Margin="10"/>
+            <TextBox x:Name="TxtCaptchaInput" Height="30"/>
+            <Button Content="Подтвердить капчу" Click="BtnCaptcha_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
