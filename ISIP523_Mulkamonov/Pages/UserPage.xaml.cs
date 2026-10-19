@@ -71,5 +71,38 @@ namespace ISIP523_Mulkamonov
         {
             UpdateData();
         }
+
+        private void BtnRent_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            int realEstateId = (int)btn.Tag;
+
+            if (MessageBox.Show("Вы подтверждаете аренду этого объекта на 1 месяц?", "Подтверждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                using (var db = new DB_Mulkamonov_LeaseEntities())
+                {
+                    var property = db.RealEstate.Find(realEstateId);
+
+                    RentalAgreement newRental = new RentalAgreement
+                    {
+                        RealEstateID = property.ID,
+                        TenantID = 3, 
+                        StartDate = DateTime.Now,
+                        EndDate = DateTime.Now.AddMonths(1),
+                        TotalAmount = property.PricePerMonth,
+                        Status = "Активен"
+                    };
+
+                    db.RentalAgreement.Add(newRental);
+
+                    property.IsActive = false;
+
+                    db.SaveChanges();
+
+                    MessageBox.Show("Договор аренды успешно оформлен!");
+                    UpdateData(); 
+                }
+            }
+        }
     }
 }
