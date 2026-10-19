@@ -18,6 +18,7 @@
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="Отчеты и Графики" Click="BtnReports_Click" Background="#233E76"/>
+            <Button Content="Договоры аренды" Click="BtnRentals_Click" Background="{DynamicResource PrimaryDarkBlue}"/>
             <Button Content="Добавить объект" Click="BtnAdd_Click"/>
             <Button Content="Редактировать" Click="BtnEdit_Click"/>
             <Button Content="Удалить выбранное" Click="BtnDelete_Click" Background="#DD4842"/>

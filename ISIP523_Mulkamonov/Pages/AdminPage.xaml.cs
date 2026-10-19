@@ -73,6 +73,10 @@ namespace ISIP523_Mulkamonov
         {
             NavigationService.Navigate(new ReportPage());
         }
+        private void BtnRentals_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RentalsPage());
+        }
     }
 
 }
