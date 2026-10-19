@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="50b38be0097e48a6b822db49d3da2cf7" Name="Diagram1" ZoomLevel="51">
+        <EntityTypeShape EntityType="DB_Mulkamonov_LeaseModel.Category" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Mulkamonov_LeaseModel.Payment" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Mulkamonov_LeaseModel.RealEstate" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Mulkamonov_LeaseModel.RealEstatePhoto" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Mulkamonov_LeaseModel.RentalAgreement" Width="1.5" PointX="10.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Mulkamonov_LeaseModel.Review" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Mulkamonov_LeaseModel.Role" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Mulkamonov_LeaseModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Mulkamonov_LeaseModel.User" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="DB_Mulkamonov_LeaseModel.FK_RealEstate_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Mulkamonov_LeaseModel.FK_Payment_Rental" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Mulkamonov_LeaseModel.FK_Photo_RealEstate" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Mulkamonov_LeaseModel.FK_RealEstate_Owner" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Mulkamonov_LeaseModel.FK_Rental_RealEstate" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Mulkamonov_LeaseModel.FK_Review_RealEstate" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Mulkamonov_LeaseModel.FK_Rental_Tenant" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Mulkamonov_LeaseModel.FK_Review_Tenant" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Mulkamonov_LeaseModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
