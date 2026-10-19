@@ -77,19 +77,32 @@ namespace ISIP523_Mulkamonov
             Button btn = sender as Button;
             int realEstateId = (int)btn.Tag;
 
-            if (MessageBox.Show("Вы подтверждаете аренду этого объекта на 1 месяц?", "Подтверждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            StackPanel parentPanel = btn.Parent as StackPanel;
+            WrapPanel wrapPanel = parentPanel.Children.OfType<WrapPanel>().FirstOrDefault();
+            TextBox txtMonths = wrapPanel.Children.OfType<TextBox>().FirstOrDefault(t => t.Name == "TxtRentMonths");
+
+            int months = 1;
+            if (txtMonths == null || !int.TryParse(txtMonths.Text, out months) || months <= 0)
+            {
+                MessageBox.Show("Пожалуйста, введите корректное количество месяцев (целое число больше нуля).");
+                return;
+            }
+
+            if (MessageBox.Show($"Вы подтверждаете аренду этого объекта на {months} мес.?", "Подтверждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 using (var db = new DB_Mulkamonov_LeaseEntities())
                 {
                     var property = db.RealEstate.Find(realEstateId);
+
+                    decimal finalAmount = property.PricePerMonth * months;
 
                     RentalAgreement newRental = new RentalAgreement
                     {
                         RealEstateID = property.ID,
                         TenantID = 3, 
                         StartDate = DateTime.Now,
-                        EndDate = DateTime.Now.AddMonths(1),
-                        TotalAmount = property.PricePerMonth,
+                        EndDate = DateTime.Now.AddMonths(months), 
+                        TotalAmount = finalAmount,
                         Status = "Активен"
                     };
 
@@ -99,7 +112,7 @@ namespace ISIP523_Mulkamonov
 
                     db.SaveChanges();
 
-                    MessageBox.Show("Договор аренды успешно оформлен!");
+                    MessageBox.Show($"Договор аренды успешно оформлен!\nИтоговая сумма по договору: {finalAmount:N2} руб.");
                     UpdateData(); 
                 }
             }

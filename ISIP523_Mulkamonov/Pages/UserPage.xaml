@@ -42,6 +42,10 @@
                             <TextBlock Text="{Binding Area, StringFormat='Площадь: {0} кв.м.'}"/>
                             <TextBlock Text="{Binding Address}" TextWrapping="Wrap" Margin="0,5,0,0"/>
                             <TextBlock Text="{Binding Address}" TextWrapping="Wrap" Margin="0,5,0,0"/>
+                            <WrapPanel HorizontalAlignment="Center" Margin="0,10,0,0">
+                                <TextBlock Text="Срок (мес):" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                                <TextBox x:Name="TxtRentMonths" Text="1" Width="40" Height="25" TextAlignment="Center" VerticalAlignment="Center"/>
+                            </WrapPanel>
                             <Button Content="Арендовать" Click="BtnRent_Click" Tag="{Binding ID}" Margin="0,10,0,0"/>
                         </StackPanel>
                     </Border>
