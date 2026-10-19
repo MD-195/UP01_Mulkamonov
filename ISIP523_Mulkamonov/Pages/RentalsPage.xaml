@@ -3,22 +3,25 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       Title="Договоры аренды">
 
-    <Grid Margin="10" Background="{DynamicResource WindowBg}">
+    <Grid Margin="15" Background="{DynamicResource WindowBg}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <DataGrid x:Name="DGridRentals" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,0,0,10">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Объект" Binding="{Binding RealEstate.Title}" Width="200"/>
-                <DataGridTextColumn Header="Арендатор" Binding="{Binding User.FIO}" Width="200"/>
-                <DataGridTextColumn Header="Начало" Binding="{Binding StartDate, StringFormat=dd.MM.yyyy}" Width="100"/>
-                <DataGridTextColumn Header="Окончание" Binding="{Binding EndDate, StringFormat=dd.MM.yyyy}" Width="100"/>
-                <DataGridTextColumn Header="Сумма (руб)" Binding="{Binding TotalAmount}" Width="120"/>
-                <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="*"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <Border Grid.Row="0" BorderBrush="{DynamicResource PrimaryCyan}" BorderThickness="1" CornerRadius="5" Background="{DynamicResource CardBg}" Margin="0,0,0,15" Padding="5">
+
+            <DataGrid x:Name="DGridRentals" AutoGenerateColumns="False" IsReadOnly="True" BorderThickness="0" Background="Transparent" RowBackground="Transparent">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Объект" Binding="{Binding RealEstate.Title}" Width="220"/>
+                    <DataGridTextColumn Header="Арендатор" Binding="{Binding User.FIO}" Width="200"/>
+                    <DataGridTextColumn Header="Начало" Binding="{Binding StartDate, StringFormat=dd.MM.yyyy}" Width="100"/>
+                    <DataGridTextColumn Header="Окончание" Binding="{Binding EndDate, StringFormat=dd.MM.yyyy}" Width="100"/>
+                    <DataGridTextColumn Header="Сумма (руб)" Binding="{Binding TotalAmount}" Width="120"/>
+                    <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="Завершить аренду" Click="BtnComplete_Click" Background="{DynamicResource PrimaryCyan}"/>

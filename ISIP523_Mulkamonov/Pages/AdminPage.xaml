@@ -16,12 +16,24 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Content="Отчеты и Графики" Click="BtnReports_Click" Background="#233E76"/>
-            <Button Content="Договоры аренды" Click="BtnRentals_Click" Background="{DynamicResource PrimaryDarkBlue}"/>
-            <Button Content="Добавить объект" Click="BtnAdd_Click"/>
-            <Button Content="Редактировать" Click="BtnEdit_Click"/>
-            <Button Content="Удалить выбранное" Click="BtnDelete_Click" Background="#DD4842"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+
+            <Button Click="BtnReports_Click" Background="#193057">
+                <TextBlock Text="Отчеты и Графики" Foreground="White"/>
+            </Button>
+            <Button Click="BtnRentals_Click" Background="#193057">
+                <TextBlock Text="Договоры аренды" Foreground="White"/>
+            </Button>
+            <Button Click="BtnAdd_Click" Background="#0198AF">
+                <TextBlock Text="Добавить объект" Foreground="White"/>
+            </Button>
+            <Button Click="BtnEdit_Click" Background="#0198AF">
+                <TextBlock Text="Редактировать" Foreground="White"/>
+            </Button>
+            <Button Click="BtnDelete_Click" Background="#DD4842">
+                <TextBlock Text="Удалить выбранное" Foreground="White"/>
+            </Button>
+
         </StackPanel>
     </Grid>
 </Page>
