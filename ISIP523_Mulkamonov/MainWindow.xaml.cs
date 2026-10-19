@@ -10,10 +10,9 @@ namespace ISIP523_Mulkamonov
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new AuthPage()); // При старте открываем авторизацию[cite: 11]
+            MainFrame.Navigate(new AuthPage()); 
         }
 
-        // Таймер для часов[cite: 12]
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
@@ -21,7 +20,6 @@ namespace ISIP523_Mulkamonov
             timer.Start();
         }
 
-        // Подтверждение выхода[cite: 12]
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             if (MessageBox.Show("Вы уверены, что хотите закрыть программу?", "Выход", MessageBoxButton.YesNo) == MessageBoxResult.No)
