@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using Microsoft.Win32;
 
 namespace ISIP523_Mulkamonov
 {
@@ -36,6 +37,7 @@ namespace ISIP523_Mulkamonov
         {
             StringBuilder errors = new StringBuilder();
 
+            // Проверки на пустоту полей
             if (string.IsNullOrWhiteSpace(_currentRealEstate.Title)) errors.AppendLine("Укажите название!");
             if (_currentRealEstate.CategoryID == 0) errors.AppendLine("Выберите категорию!");
             if (_currentRealEstate.OwnerID == 0) errors.AppendLine("Выберите владельца!");
@@ -64,7 +66,22 @@ namespace ISIP523_Mulkamonov
 
                 try
                 {
-                    db.SaveChanges(); 
+                    db.SaveChanges();
+
+                    if (!string.IsNullOrEmpty(selectedPhotoPath))
+                    {
+                        var photo = new RealEstatePhoto
+                        {
+                            RealEstateID = _currentRealEstate.ID,
+                            PhotoPath = selectedPhotoPath,
+                            IsMain = true
+                        };
+                        db.RealEstatePhoto.Add(photo);
+
+                        db.SaveChanges();
+                    }
+
+                    MessageBox.Show("Данные успешно сохранены!");
                     NavigationService.GoBack();
                 }
                 catch (Exception ex)
@@ -73,5 +90,20 @@ namespace ISIP523_Mulkamonov
                 }
             }
         }
+        private string selectedPhotoPath = "";
+
+        private void BtnSelectPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Изображения|*.jpg;*.jpeg;*.png;*.bmp";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                selectedPhotoPath = openFileDialog.FileName;
+                LblPhotoPath.Text = "Фото выбрано";
+            }
+        }
+
+    
     }
 }

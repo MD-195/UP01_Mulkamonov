@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="PrimaryCyan" Color="#006880"/>
+    <SolidColorBrush x:Key="PrimaryDarkBlue" Color="#233E76"/>
     <SolidColorBrush x:Key="WindowBg" Color="#2E2E2E"/>
     <SolidColorBrush x:Key="CardBg" Color="#3E3E3E"/>
     <SolidColorBrush x:Key="TextColor" Color="White"/>

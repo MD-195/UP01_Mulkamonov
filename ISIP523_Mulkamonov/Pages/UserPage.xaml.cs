@@ -33,7 +33,7 @@ namespace ISIP523_Mulkamonov
 
             using (var db = new DB_Mulkamonov_LeaseEntities())
             {
-                var currentData = db.RealEstate.Include("Category").Where(r => r.IsActive == true).ToList();
+                var currentData = db.RealEstate.Include("Category").Include("RealEstatePhoto").Where(r => r.IsActive == true).ToList();
 
                 if (!string.IsNullOrWhiteSpace(TxtSearch.Text))
                 {
@@ -58,7 +58,20 @@ namespace ISIP523_Mulkamonov
                     currentData = currentData.OrderByDescending(r => r.PricePerMonth).ToList();
                 }
 
-                ListRealEstate.ItemsSource = currentData;
+                var displayList = currentData.Select(r => new
+                {
+                    r.ID,
+                    r.Title,
+                    CategoryName = r.Category.Name, 
+                    r.PricePerMonth,
+                    r.Area,
+                    r.Address,
+                    CoverPhoto = r.RealEstatePhoto.Any()
+                                 ? r.RealEstatePhoto.OrderByDescending(p => p.ID).First().PhotoPath
+                                 : "res/Логотип.jpg"
+                }).ToList();
+
+                ListRealEstate.ItemsSource = displayList;
             }
         }
 
